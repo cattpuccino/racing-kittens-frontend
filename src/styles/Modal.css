@@ -1,0 +1,103 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(217, 217, 217, 0.7);
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    padding: 14px 28px;
+    max-width: 800px;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.players {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    flex-direction: row;
+}
+
+/* Estilo para cada jugador */
+.player {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    flex: 1 1 45%;
+}
+
+.player-info {
+    margin-bottom: 10px;
+}
+
+/* Estilo para el icono del jugador */
+.player-icon {
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Estilo para el nombre del jugador */
+.player h3 {
+    margin: 10px 0;
+}
+
+.store-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 900px;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 150px;
+    margin: 0;
+    margin-bottom: auto;
+    padding: 0.5rem;
+    border-bottom: 2px dashed #ccc;
+}
+
+.image {
+    max-width: 350px;
+    max-height: auto;
+}

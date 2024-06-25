@@ -1,0 +1,164 @@
+#game-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3.5rem;
+}
+
+#turn-info {
+  align-self: center;
+}
+
+.player-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 1rem;
+}
+
+.player-info-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-profile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.player-icon {
+  position: relative; 
+}
+
+.button-area {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 80px);
+  grid-template-rows: repeat(6, 80px);
+  gap: 1px;
+}
+
+.board-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.cell.orange {
+  background-color: orange;
+}
+
+.cell.white {
+  background-color: white;
+}
+
+.cell .player {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.cell .piece-icon {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background-color: #FDA578;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-family: 'Jockey One', sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: #FDA578;
+}
+
+.bomb-icon {
+  position: absolute;
+  width: 50px; 
+  height: 50px;
+  bottom: -25px; 
+  right: -25px;
+}
+
+.info-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  gap: 0.5rem;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25rem;
+}
+
+
+
+#temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 3.5rem;
+}
+
+.Entrega4-Temp{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+#API-response {
+  background-color: azure;
+}
+
+#endpoints-response {
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+  justify-content: flex-start;
+}

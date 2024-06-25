@@ -1,0 +1,69 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E5C8A8;
+    font-family: 'Jockey One', sans-serif;
+  }
+  
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+}
+  
+.image-area {
+    flex-shrink: 0;
+}
+  
+.cat {
+    max-width: 600px;
+    height: auto;
+}
+  
+.text-area {
+    max-width: 600px;
+}
+  
+.text-area h1 {
+    margin: 3rem 0 1.5rem 0;
+    font-size: 2.5rem;
+}
+  
+.text-area p {
+    margin-top: 0;
+    line-height: 1.5;
+    font-size: 1.2em;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button {
+    background-color: #FDA578;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Jockey One', sans-serif;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: #FDA578;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: rgb(69, 69, 69);
+}
+

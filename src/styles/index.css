@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+
+:root {
+  font-family: 'Jockey One', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #E5C8A8;
+}
+
+body {
+  margin: 0;
+}
