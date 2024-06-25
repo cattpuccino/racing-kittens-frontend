@@ -32,6 +32,7 @@ export default function Waiting() {
     const [isFull, setIsFull] = useState(false);
     const decodedToken = parseJwt(token);
     const userId = decodedToken.sub;
+    const timer = 4; // cada 4 segundos se actualiza la info del juego
 
     const handleClickOut = () => {
         axios({
@@ -47,6 +48,7 @@ export default function Waiting() {
             .catch((error) => console.error(error));
     }
     const handleBeginGame = () => {
+        console.log("start game");
         axios({
             method: 'post',
             url: `${API_URL}/begin/game`,
@@ -82,6 +84,8 @@ export default function Waiting() {
             .catch((error) => console.error(error));
     }
     useEffect(() => {
+      const interval = setInterval(() => {
+        console.log('Waiting...');
         axios({
             method: 'get',
             url: `${API_URL}/rooms/info/${roomId}`,
@@ -110,8 +114,9 @@ export default function Waiting() {
                     navigate('/rooms/show');
                 }
             });
-        
-    }, [isHost, hostId, token, userId, roomId, isFull]);
+          }, timer * 1000);
+        return () => clearInterval(interval);
+    }, [timer, hostId, isFull, isHost]);
     return (
         <div className='rooms'>
             <div>

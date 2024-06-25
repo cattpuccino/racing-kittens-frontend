@@ -31,6 +31,7 @@ function Rooms() {
     const { token } = useContext(AuthContext)
     const [error, setError] = useState(false);
     const [msg, setMsg] = useState("");
+    const timer = 4; // cada 4 segundos se actualiza la info del juego
     const navigate = useNavigate();
 
     const decodedToken = parseJwt(token);
@@ -39,6 +40,8 @@ function Rooms() {
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
+      console.log("looking for rooms...");
+      const interval = setInterval(() => {
         axios({
           method: 'get',
           url: `${API_URL}/rooms/show`,
@@ -55,8 +58,9 @@ function Rooms() {
             setRooms(availableRooms);
           })
           .catch((error) => console.error(error));
-        
-    }, [])
+      }, timer * 1000);
+      return () => clearInterval(interval);
+    }, [timer, rooms]);
 
     const handleJoinClick = (roomId, roomName) => {
       setRoomname(roomName);
@@ -114,7 +118,7 @@ function Rooms() {
                         className="overlay"
                     ></div>
                     <div className="store-content">
-                        <h2>Ingrese contrsaeña de la sala</h2>
+                        <h2>Ingrese contraseña de la sala</h2>
                         <form className="form" onSubmit={handleSubmit}>
                             <input 
                                 type="password" 

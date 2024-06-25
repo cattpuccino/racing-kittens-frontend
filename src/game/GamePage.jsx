@@ -23,31 +23,34 @@ export default function GamePage() {
     const [turnPlayer, setTurnPlayer] = useState([0, 1, "Jugador 1"]);
     const [APIresponse, setAPIresponse] = useState('{"message": "Playing game"}');
     const [playerNumber, setPlayerNumber] = useState([0,0]);
+    const timer = 2; // cada 2 segundos se actualiza la info del juego
     const queryParameters = new URLSearchParams(window.location.search)
     const gamesession_id = queryParameters.get("gameid")
     
     useEffect(() => {
-      axios({
-        method: 'get',
-        url: `${API_URL}/game/${gamesession_id}/info`,
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-        .then((res) => {
-          setAPIresponse(JSON.stringify(res.data));
-          let dataPlayers = res.data.board.players;
-          setPlayers(dataPlayers);
-          let dataBoard = res.data.board;
-          setBoard(dataBoard);
-          let CurrentPlayer = dataPlayers.find(player => player.playerNumber === res.data.current_player);
-          let player = dataPlayers.find(player => player.name === userName);
-          setTurnPlayer([res.data.turn, CurrentPlayer.playerNumber, CurrentPlayer.name, CurrentPlayer.id]);
-          setPlayerNumber([player.id, player.playerNumber]);
+      const interval = setInterval(() => {
+        axios({
+          method: 'get',
+          url: `${API_URL}/game/${gamesession_id}/info`,
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
         })
-        .catch((error) => console.error(error));
-      
-    }, [])
+          .then((res) => {
+            setAPIresponse(JSON.stringify(res.data));
+            let dataPlayers = res.data.board.players;
+            setPlayers(dataPlayers);
+            let dataBoard = res.data.board;
+            setBoard(dataBoard);
+            let CurrentPlayer = dataPlayers.find(player => player.playerNumber === res.data.current_player);
+            let player = dataPlayers.find(player => player.name === userName);
+            setTurnPlayer([res.data.turn, CurrentPlayer.playerNumber, CurrentPlayer.name, CurrentPlayer.id]);
+            setPlayerNumber([player.id, player.playerNumber]);
+          })
+          .catch((error) => console.error(error));
+      }, timer * 1000);
+      return () => clearInterval(interval);
+    }, [timer]);
 
     return (
         <div id='temp'>
